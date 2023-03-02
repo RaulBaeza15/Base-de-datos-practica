@@ -1,0 +1,18 @@
+L = { U -> E, E -> U, U -> C , C -> Z, L -> N, L -> J, J -> K, N->L, P -> A , P M -> R, O -> D, L F -> I E B H, E F -> L , I -> L F , I P M-> G O S } 
+
+U -> E,
+E -> U, 
+U -> C , 
+C -> Z, 
+L -> N, 
+L -> J, 
+J -> K, 
+N->L, 
+P -> A , 
+P M -> R, 
+O -> D, 
+L F -> I E B H, 
+E F -> L , 
+I -> L F , 
+I P M-> G O S
+
