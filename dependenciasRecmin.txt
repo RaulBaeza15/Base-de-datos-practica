@@ -14,7 +14,28 @@ L F -> I E B H
 E F -> L 
 I -> L F O
 I P M-> G S
-
+1)
+U -> E
+E -> U
+U -> C 
+C -> Z
+L -> N
+L -> J
+J -> K
+N->L
+P -> A 
+P M -> R
+O -> D
+L F -> I
+L F ->  E 
+L F ->  B 
+L F ->  H
+E F -> L 
+I -> L 
+I ->  F 
+I ->  O
+I P M-> G 
+I P M->  S
 
 
 
