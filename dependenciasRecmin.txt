@@ -62,7 +62,28 @@ I ->  F
 I ->  O
 I P M-> G 
 I P M->  S
-
+3)eliminar DF redundantes
+P -> A 
+U -> E
+L F ->  E 
+E -> U
+N->L
+E F -> L 
+I -> L
+U -> C 
+C -> Z
+L -> N
+L -> J
+J -> K
+P M -> R
+O -> D
+L F -> I
+L F ->  B 
+L F ->  H
+I ->  F 
+I ->  O
+I P M-> G 
+I P M->  S
 
 
 
