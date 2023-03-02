@@ -1,7 +1,6 @@
-                           ║PMI
+                           ║PM
 ═══════════════════════════╬═══════════════════════════
-                ZKARDGSBH  ║UECLNJOF
-
+                ZKARDGSBH  ║UECLNJOFI
 T = ( U, E, C, Z, L, N, J, K, P, A, M, R, O, D, I, F, G, S, B, H )
 L={
 P -> A 
@@ -25,6 +24,9 @@ I ->  F
 I P M-> G 
 I P M->  S
 I P M->  O}
+
+Cierre de claves
+(PMI)+=PMIFAGSORLEUCZNJKDBH=T
 
 
 
