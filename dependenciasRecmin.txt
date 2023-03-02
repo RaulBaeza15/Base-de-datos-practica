@@ -36,8 +36,32 @@ I ->  F
 I ->  O
 I P M-> G 
 I P M->  S
-
-
+2) eliminar atributos extraños
+P -> A 
+U -> E
+L F ->  E 
+(L)+=LNJK
+(F)+=F
+E -> U
+N->L
+E F -> L 
+(E)+=EUCZ
+(F)+=F
+I -> L
+U -> C 
+C -> Z
+L -> N
+L -> J
+J -> K
+P M -> R
+O -> D
+L F -> I
+L F ->  B 
+L F ->  H
+I ->  F 
+I ->  O
+I P M-> G 
+I P M->  S
 
 
 
