@@ -1,6 +1,6 @@
 # README
 
-Este repositorio de Git contiene los códigos SQL utilizados en la práctica de Base de Datos Avanzadas de la Universidad..
+Este repositorio de Git contiene los códigos SQL utilizados en la práctica de Base de Datos Avanzadas de la Universidad.
 
 ## Formato de archivos
 
