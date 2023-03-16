@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS practica1bda_normalizada; 
- USE practica1bda_normalizada;
+CREATE DATABASE IF NOT EXISTS practica1bda_tablaunica2; 
+ USE practica1bda_tablaunica2;
 
 
 DROP TABLE IF EXISTS localidadClienteCZ;
@@ -17,21 +17,24 @@ CREATE TABLE clienteUEC (
 );
 create unique index clienteIDIndice on clienteUEC (clienteID);
 
-DROP TABLE IF EXISTS localLNJ;
-CREATE TABLE localLNJ (
-	localID int,
-    nombre_local varchar(25) not null,
-	calle_local	varchar(20),
-    PRIMARY KEY (localID)
-); 
-create unique index nombre_localIndice on localLNJ (nombre_local);
-
 DROP TABLE IF EXISTS localidadLocalJK;
 CREATE TABLE  localidadLocalJK(
 	calle_local	varchar(20),
 	zona_local int,
     PRIMARY KEY (calle_local)
+     
 ); 
+
+DROP TABLE IF EXISTS localLNJ;
+CREATE TABLE localLNJ (
+	localID int,
+    nombre_local varchar(25) not null,
+	calle_local	varchar(20),
+    PRIMARY KEY (localID),
+    FOREIGN KEY (calle_local) REFERENCES localidadLocalJK (calle_local)
+); 
+create unique index nombre_localIndice on localLNJ (nombre_local);
+
 
 DROP TABLE IF EXISTS ofertaOD;
 CREATE TABLE  ofertaOD(
@@ -82,3 +85,4 @@ CREATE TABLE  precioPedidoIPMGOS(
     nombre_oferta varchar(20),
     PRIMARY KEY (pedidoID, producto, medida)
 ); 
+
