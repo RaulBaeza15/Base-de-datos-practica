@@ -83,6 +83,7 @@ CREATE TABLE  precioPedidoIPMGOS(
     cantidad int,
 	subtotal decimal(7,2),
     nombre_oferta varchar(20),
-    PRIMARY KEY (pedidoID, producto, medida)
+    PRIMARY KEY (pedidoID, producto, medida),
+    FOREIGN KEY (producto) REFERENCES productoPA(producto)
 ); 
 
