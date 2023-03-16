@@ -11,6 +11,19 @@ CREATE TABLE clienteUEC (
 create unique index clienteIDIndice on clienteUEC (clienteID);
 
 DROP TABLE IF EXISTS localidadClienteCZ;
+CREATE DATABASE IF NOT EXISTS practica1bda_tablaunica2; 
+ USE practica1bda_tablaunica2;
+
+DROP TABLE IF EXISTS clienteUEC;
+CREATE TABLE clienteUEC (
+	usuario	varchar(15), 
+    clienteID integer  not null,
+    calle_cliente varchar(20),
+    PRIMARY KEY (usuario)
+); 
+create unique index clienteIDIndice on clienteUEC (clienteID);
+
+DROP TABLE IF EXISTS localidadClienteCZ;
 CREATE TABLE localidadClienteCZ (
 	calle_cliente	varchar(20),
     zona_cliente int,
@@ -20,7 +33,7 @@ CREATE TABLE localidadClienteCZ (
 DROP TABLE IF EXISTS localLNJ;
 CREATE TABLE localLNJ (
 	localID int,
-    nombre_local varchar(25),
+    nombre_local varchar(25) not null,
 	calle_local	varchar(20),
     PRIMARY KEY (localID)
 ); 
@@ -43,9 +56,9 @@ CREATE TABLE  ofertaOD(
 DROP TABLE IF EXISTS pedidoLFIEBH;
 CREATE TABLE  pedidoLFIEBH(
 	localID int,
-    fecha_hora datetime,
-    pedidoID int,
-    clienteID integer,
+    fecha_hora datetime  not null,
+    pedidoID int  not null ,
+    clienteID integer  not null,
     total decimal(7,2),
     entrega varchar(10),
     PRIMARY KEY (localID, fecha_hora)
