@@ -17,24 +17,21 @@ CREATE TABLE clienteUEC (
 );
 create unique index clienteIDIndice on clienteUEC (clienteID);
 
-DROP TABLE IF EXISTS localidadLocalJK;
-CREATE TABLE  localidadLocalJK(
-	calle_local	varchar(20),
-	zona_local int,
-    PRIMARY KEY (calle_local)
-     
-); 
-
 DROP TABLE IF EXISTS localLNJ;
 CREATE TABLE localLNJ (
 	localID int,
     nombre_local varchar(25) not null,
 	calle_local	varchar(20),
-    PRIMARY KEY (localID),
-    FOREIGN KEY (calle_local) REFERENCES localidadLocalJK (calle_local)
+    PRIMARY KEY (localID)
 ); 
 create unique index nombre_localIndice on localLNJ (nombre_local);
 
+DROP TABLE IF EXISTS localidadLocalJK;
+CREATE TABLE  localidadLocalJK(
+	calle_local	varchar(20),
+	zona_local int,
+    PRIMARY KEY (calle_local)
+); 
 
 DROP TABLE IF EXISTS ofertaOD;
 CREATE TABLE  ofertaOD(
@@ -72,7 +69,7 @@ CREATE TABLE  precioProductoPMR(
 	producto varchar(20),
     medida	varchar(10),
     precio	decimal(5,2),
-    PRIMARY KEY (producto, precio)
+    PRIMARY KEY (producto, medida)
 ); 
 
 DROP TABLE IF EXISTS precioPedidoIPMGOS;
@@ -84,6 +81,5 @@ CREATE TABLE  precioPedidoIPMGOS(
 	subtotal decimal(7,2),
     nombre_oferta varchar(20),
     PRIMARY KEY (pedidoID, producto, medida),
-    FOREIGN KEY (producto) REFERENCES productoPA(producto)
+	FOREIGN KEY (producto) REFERENCES productoPA(producto)
 ); 
-
