@@ -10,21 +10,13 @@ CREATE TABLE localidadClienteCZ (
 ); 
 DROP TABLE IF EXISTS clienteUEC;
 CREATE TABLE clienteUEC (
-  usuario varchar(15) PRIMARY KEY,
+  usuario varchar(15),
   clienteID integer not null,
   calle_cliente varchar(20),
+PRIMARY KEY (usuario),
   FOREIGN KEY (calle_cliente) REFERENCES localidadClienteCZ(calle_cliente)
 );
 create unique index clienteIDIndice on clienteUEC (clienteID);
-
-DROP TABLE IF EXISTS localLNJ;
-CREATE TABLE localLNJ (
-	localID int,
-    nombre_local varchar(25) not null,
-	calle_local	varchar(20),
-    PRIMARY KEY (localID)
-); 
-create unique index nombre_localIndice on localLNJ (nombre_local);
 
 DROP TABLE IF EXISTS localidadLocalJK;
 CREATE TABLE  localidadLocalJK(
@@ -32,6 +24,16 @@ CREATE TABLE  localidadLocalJK(
 	zona_local int,
     PRIMARY KEY (calle_local)
 ); 
+
+DROP TABLE IF EXISTS localLNJ;
+CREATE TABLE localLNJ (
+	localID int,
+    nombre_local varchar(25) not null,
+	calle_local	varchar(20),
+    PRIMARY KEY (localID),
+	FOREIGN KEY (calle_local) REFERENCES localidadLocalJK(calle_local)
+); 
+create unique index nombre_localIndice on localLNJ (nombre_local);
 
 DROP TABLE IF EXISTS ofertaOD;
 CREATE TABLE  ofertaOD(
@@ -49,8 +51,8 @@ CREATE TABLE  pedidoLFIEBH(
     clienteID integer  not null,
     total decimal(7,2),
     entrega varchar(10),
-    PRIMARY KEY (localID, fecha_hora)
-    
+    PRIMARY KEY (localID, fecha_hora),
+	FOREIGN KEY (localID) REFERENCES localLNJ(localID)
 ); 
 
 create unique index pedidoIDIndice on pedidoLFIEBH (pedidoID);
@@ -60,16 +62,16 @@ DROP TABLE IF EXISTS productoPA;
 CREATE TABLE  productoPA(
 	producto varchar(20),
     tipo varchar(10),
-	
     PRIMARY KEY (producto)
 ); 
 
 DROP TABLE IF EXISTS precioProductoPMR;
 CREATE TABLE  precioProductoPMR(
-	producto varchar(20),
+    producto varchar(20),
     medida	varchar(10),
     precio	decimal(5,2),
-    PRIMARY KEY (producto, medida)
+    PRIMARY KEY (producto, medida),
+	FOREIGN KEY (producto) REFERENCES productoPA(producto),
 ); 
 
 DROP TABLE IF EXISTS precioPedidoIPMGOS;
@@ -81,5 +83,6 @@ CREATE TABLE  precioPedidoIPMGOS(
 	subtotal decimal(7,2),
     nombre_oferta varchar(20),
     PRIMARY KEY (pedidoID, producto, medida),
-	FOREIGN KEY (producto) REFERENCES productoPA(producto)
+	FOREIGN KEY (producto) REFERENCES productoPA(producto),
+	FOREIGN KEY (producto, medida) REFERENCES precioProductoPMR(producto, medida)
 ); 
