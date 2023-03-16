@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS practica1bda_tablaunica2; 
- USE practica1bda_tablaunica2;
+CREATE DATABASE IF NOT EXISTS practica1bda_normalizada; 
+ USE practica1bda_normalizada;
 
 
 DROP TABLE IF EXISTS localidadClienteCZ;
